@@ -1,16 +1,15 @@
 import "@/app/ui/global.css";
 import { inter } from "./ui/fonts";
 
-export default function RootLayout({
-  children,
-  params: { locale },
-}: {
+interface IRootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
-}) {
+  params:any;
+}
+
+export default function RootLayout({ children, params }: IRootLayoutProps) {
   return (
-    <html lang={locale}>
-      <body className={`${inter.className}antialiased`}> {children}</body>
+    <html lang={params.locale}>
+      <body className={`${inter.className} antialiased`}> {children}</body>
     </html>
   );
 }
